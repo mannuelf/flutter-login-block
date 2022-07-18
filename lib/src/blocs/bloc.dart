@@ -12,7 +12,7 @@ class Bloc with Validators {
   Stream<String> get password => _password.stream.transform(validatePassword);
 
   Stream<bool> get submitValid =>
-      Observable.combineLatest2(email, password, (e, p) => true);
+      Rx.combineLatest2(email, password, (e, p) => true);
 
   // Change data
   Function(String) get changeEmail => _email.sink.add;
