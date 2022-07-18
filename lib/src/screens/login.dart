@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(top: 20.0),
           ),
-          submitButton()
+          submitButton(bloc)
         ],
       ),
     );
@@ -59,8 +59,12 @@ class LoginScreen extends StatelessWidget {
         }));
   }
 
-  Widget submitButton() {
-    return ElevatedButton(
-        onPressed: () => print('Logging in'), child: const Text('Login'));
+  Widget submitButton(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.submitValid,
+      builder: (context, snapshot) {
+        return ElevatedButton(onPressed: () => {});
+      },
+    );
   }
 }
