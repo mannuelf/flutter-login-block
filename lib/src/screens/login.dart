@@ -11,11 +11,11 @@ class LoginScreen extends StatelessWidget {
         children: <Widget>[
           emailField(),
           Container(
-            margin: EdgeInsets.only(top: 20.0),
+            margin: const EdgeInsets.only(top: 20.0),
           ),
           passwordField(),
           Container(
-            margin: EdgeInsets.only(top: 20.0),
+            margin: const EdgeInsets.only(top: 20.0),
           ),
           submitButton()
         ],
@@ -34,7 +34,8 @@ class LoginScreen extends StatelessWidget {
   Widget passwordField() {
     return const TextField(
       obscureText: true,
-      decoration: InputDecoration(hintText: 'Password', labelText: 'Password'),
+      decoration:
+          InputDecoration(hintText: 'Password', labelText: 'Create a password'),
     );
   }
 
