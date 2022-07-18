@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget emailField(Behavior bloc) {
+  Widget emailField(Bloc bloc) {
     return StreamBuilder(
       stream: bloc.email,
       builder: (context, AsyncSnapshot<Object?> snapshot) {
@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget passwordField(Behavior bloc) {
+  Widget passwordField(Bloc bloc) {
     return StreamBuilder(
         stream: bloc.password,
         builder: ((context, AsyncSnapshot<Object?> snapshot) {
@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
         }));
   }
 
-  Widget submitButton(Behavior bloc) {
+  Widget submitButton(Bloc bloc) {
     return StreamBuilder(
       stream: bloc.submitValid,
       builder: (BuildContext context, AsyncSnapshot<Object?> snapshot) {

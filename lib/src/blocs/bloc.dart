@@ -22,7 +22,10 @@ class Bloc with Validators {
   Function(String) get changePassword => _password.sink.add;
 
   submit() {
-    print('submitted');
+    final validEmail = _email.value;
+    final validPassword = _password.value;
+    print('Email is $validateEmail');
+    print('Password is $validatePassword');
   }
 
   // Clean up
