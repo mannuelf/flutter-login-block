@@ -13,4 +13,10 @@ class Bloc with Validators {
   // Change data
   Function(String) get changeEmail => _email.sink.add;
   Function(String) get changePassword => _password.sink.add;
+
+  // Clean up
+  dispose() {
+    _email.close();
+    _password.close();
+  }
 }
