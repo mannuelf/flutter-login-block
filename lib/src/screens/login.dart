@@ -28,25 +28,32 @@ class LoginScreen extends StatelessWidget {
   Widget emailField() {
     return StreamBuilder(
       stream: bloc.email,
-      builder: (BuildContext context, AsyncSnapshot<Object?> snapshot) {
+      builder: (context, snapshot) {
         return TextField(
           onChanged: bloc.changeEmail,
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
               hintText: 'you@example.com',
               labelText: 'Add Email Address',
-              errorText: snapshot.error as String),
+              errorText: snapshot.error.toString()),
         );
       },
     );
   }
 
   Widget passwordField() {
-    return const TextField(
-      obscureText: true,
-      decoration:
-          InputDecoration(hintText: 'Password', labelText: 'Create a password'),
-    );
+    return StreamBuilder(
+        stream: bloc.password,
+        builder: ((context, snapshot) {
+          return TextField(
+            obscureText: true,
+            onChanged: bloc.changePassword,
+            decoration: InputDecoration(
+                hintText: 'Password',
+                labelText: 'Create a password',
+                errorText: snapshot.error.toString()),
+          );
+        }));
   }
 
   Widget submitButton() {
