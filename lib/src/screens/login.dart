@@ -41,6 +41,6 @@ class LoginScreen extends StatelessWidget {
 
   Widget submitButton() {
     return ElevatedButton(
-        onPressed: () => print('Logging in'), child: Text('Login'));
+        onPressed: () => print('Logging in'), child: const Text('Login'));
   }
 }
