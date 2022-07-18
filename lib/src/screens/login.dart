@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget emailField(Bloc bloc) {
+  Widget emailField(Behavior bloc) {
     return StreamBuilder(
       stream: bloc.email,
       builder: (context, AsyncSnapshot<Object?> snapshot) {
@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget passwordField(Bloc bloc) {
+  Widget passwordField(Behavior bloc) {
     return StreamBuilder(
         stream: bloc.password,
         builder: ((context, AsyncSnapshot<Object?> snapshot) {
@@ -59,14 +59,14 @@ class LoginScreen extends StatelessWidget {
         }));
   }
 
-  Widget submitButton(Bloc bloc) {
+  Widget submitButton(Behavior bloc) {
     return StreamBuilder(
       stream: bloc.submitValid,
       builder: (BuildContext context, AsyncSnapshot<Object?> snapshot) {
         return ElevatedButton(
             onPressed: snapshot.hasData
                 ? () {
-                    print('Submitting');
+                    bloc.submit();
                   }
                 : null,
             child: const Text('Login'));

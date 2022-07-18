@@ -5,9 +5,10 @@ import 'package:rxdart/rxdart.dart';
 
 class Bloc with Validators {
   // StreamController creates a single subscription stream
-  // StreamController.broacast creates multi sub stream
-  final _email = StreamController<String>.broadcast();
-  final _password = StreamController<String>.broadcast();
+  // StreamController.broadcast creates multi sub stream
+  // Now we will use BehaviorSubject Subject
+  final _email = BehaviorSubject<String>();
+  final _password = BehaviorSubject<String>();
 
   // Add data to a stream, give the transformed stream
   Stream<String> get email => _email.stream.transform(validateEmail);
@@ -19,6 +20,10 @@ class Bloc with Validators {
   // Change data
   Function(String) get changeEmail => _email.sink.add;
   Function(String) get changePassword => _password.sink.add;
+
+  submit() {
+    print('submitted');
+  }
 
   // Clean up
   dispose() {
