@@ -4,8 +4,10 @@ import 'validators.dart';
 import 'package:rxdart/rxdart.dart';
 
 class Bloc with Validators {
-  final _email = StreamController<String>();
-  final _password = StreamController<String>();
+  // StreamController creates a single subscription stream
+  // StreamController.broacast creates multi sub stream
+  final _email = StreamController<String>.broadcast();
+  final _password = StreamController<String>.broadcast();
 
   // Add data to a stream, give the transformed stream
   Stream<String> get email => _email.stream.transform(validateEmail);
