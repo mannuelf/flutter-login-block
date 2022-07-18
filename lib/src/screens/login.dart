@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
   Widget emailField() {
     return StreamBuilder(
       stream: bloc.email,
-      builder: (context, snapshot) {
+      builder: (context, AsyncSnapshot<Object?> snapshot) {
         return TextField(
           onChanged: bloc.changeEmail,
           keyboardType: TextInputType.emailAddress,
@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
   Widget passwordField() {
     return StreamBuilder(
         stream: bloc.password,
-        builder: ((context, snapshot) {
+        builder: ((context, AsyncSnapshot<Object?> snapshot) {
           return TextField(
             obscureText: true,
             onChanged: bloc.changePassword,
