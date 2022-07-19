@@ -14,6 +14,7 @@ class Bloc with Validators {
   Stream<String> get email => _email.stream.transform(validateEmail);
   Stream<String> get password => _password.stream.transform(validatePassword);
 
+  // https://stackoverflow.com/questions/59336428/observable-is-deprecated-in-rxdart-0-23-1
   Stream<bool> get submitValid =>
       Rx.combineLatest2(email, password, (e, p) => true);
 
